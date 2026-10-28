@@ -59,3 +59,33 @@ body { font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif; background:
 .document-status { border-color: var(--border) !important; }
 .document-tags span, .skill-row span { border-color: var(--border); background: rgba(127,162,163,.14); color: var(--accent); }
 @media (prefers-reduced-motion: reduce) { .bio-panel { transition: none; } }
+
+/* Bright cool workspace palette */
+:root { --workspace: #F3F7F7; --surface: #FFFFFF; --surface-secondary: #EDF5F3; --accent: #2F6F68; --accent-muted: #7FB5AD; --border: #D4E1DF; --text: #182D2A; --text-muted: #6B7E7A; --status-live: #1FA879; --status-poc: #7467B2; --status-prototype: #C9893D; }
+body, .desktop-workspace { background: var(--workspace); color: var(--text); }
+.desktop-wallpaper { background: #F3F7F7; }
+.desktop-wallpaper::after { opacity: .8; background-image: linear-gradient(rgba(47,111,104,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(47,111,104,.06) 1px, transparent 1px); }
+.desktop-menubar { background: rgba(255,255,255,.82); border-color: var(--border); }
+.welcome-layer, .window-layer { background: rgba(25,45,48,.24); backdrop-filter: blur(5px); }
+.welcome-dialog, .explorer-window, .lightbox-content { background: #FFFFFF; border-color: var(--border); }
+.window-bar, .window-toolbar { background: var(--surface-secondary); border-color: var(--border); }
+.sidebar-tree { background: #EDF5F3; border-color: var(--border); }
+.document-pane { background: #FFFFFF; }
+.tree-button { color: var(--text-muted); }
+.tree-button:hover { background: #E7F2F0; }
+.tree-button.is-active { background: #DCEDEA; color: var(--accent); box-shadow: inset 2px 0 var(--accent); }
+.document-header { border-color: var(--border); }
+.document-header h2, .welcome-body h2 { color: var(--text); }
+.document-header span, .toolbar-location, .window-path, .menu-muted, .menu-status { color: var(--text-muted); }
+.profile-tags span, .document-tags span, .skill-row span, .welcome-skills span { background: #EDF6F4; border-color: #C8DEDA; color: #315F59; }
+.primary-button, .toolbar-back, .expand-button, .architecture-expand, .lightbox-close { background: var(--accent); border-color: var(--accent); }
+.secondary-button { background: #FFFFFF; color: var(--accent); border-color: var(--border); }
+.document-status { border-color: var(--border) !important; color: var(--accent); }
+.icon-project { background: linear-gradient(145deg, #DDF2ED, #B9DCD4); }
+.icon-project::before { background: #C9E8E1; }
+.icon-document { background: #F6F3EA; }
+.icon-contact { background: #E5F0F0; }
+.icon-art { border-color: rgba(47,111,104,.38); color: rgba(47,88,83,.8); box-shadow: 5px 6px 0 rgba(47,111,104,.1); }
+.status-dot { background: var(--status-live); box-shadow: 0 0 0 3px rgba(31,168,121,.13); }
+.architecture-lightbox { background: rgba(25,45,48,.24); backdrop-filter: blur(5px); }
+.focus-ring:focus-visible { outline-color: var(--accent); }
