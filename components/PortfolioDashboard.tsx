@@ -10,6 +10,7 @@ const projectInitials = (name: string) => name === "PositionPort × AWS Data Lab
 
 export function PortfolioDashboard() {
   const [welcomeOpen, setWelcomeOpen] = useState(true);
+  const [bioOpen, setBioOpen] = useState(false);
   const [section, setSection] = useState<Section>({ type: "overview" });
   const [lightboxProject, setLightboxProject] = useState<Project | null>(null);
 
@@ -32,7 +33,7 @@ export function PortfolioDashboard() {
         <div className="menu-status"><span>BACKEND DEVELOPER</span><span className="status-dot" /> <span>AVAILABLE FOR OPPORTUNITIES</span></div>
       </header>
       <section className="desktop-canvas" aria-label="Portfolio desktop">
-        <div className="desktop-intro"><div className="profile-identity"><div className="profile-avatar"><ProfileImage src={portfolio.profile.photo} name={portfolio.profile.name} /></div><div><strong>{portfolio.profile.name}</strong><span>{portfolio.profile.title}</span><small>{portfolio.profile.level}</small></div></div><p className="desktop-kicker">PERSONAL WORKSPACE / 2026</p><h1>Projects, systems,<br /><em>and things I built.</em></h1><p>{portfolio.profile.introduction}</p><div className="profile-tags">{portfolio.profile.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
+        <div className="desktop-intro"><div className="profile-identity"><div className="profile-avatar"><ProfileImage src={portfolio.profile.photo} name={portfolio.profile.name} /></div><div><strong>{portfolio.profile.name}</strong><span>Backend Developer · 신입</span></div></div><div className="profile-tags">{portfolio.profile.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><button className="bio-toggle focus-ring" type="button" aria-expanded={bioOpen} onClick={() => setBioOpen((open) => !open)}>{bioOpen ? "− 자기소개" : "+ 자기소개"}</button><div className={`bio-panel ${bioOpen ? "is-open" : ""}`} aria-hidden={!bioOpen}><p>{portfolio.profile.introduction}</p></div></div>
         <div className="desktop-icon-grid">
           {portfolio.projects.map((project) => <DesktopIcon key={project.slug} label={project.name} kind="project" initials={projectInitials(project.name)} onOpen={() => open({ type: "project", project })} />)}
           <DesktopIcon label="Resume" kind="document" initials="CV" onOpen={() => open({ type: "resume" })} />
