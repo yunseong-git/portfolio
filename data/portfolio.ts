@@ -6,7 +6,8 @@ export type Project = {
 
 export const portfolio = {
   profile: {
-    name: "정윤성", englishName: "Yunseong Jeong", title: "Backend Developer", photo: "/profile/profile.jpg",
+    name: "정윤성", englishName: "Yunseong Jeong", title: "Backend Developer", level: "신입 / Junior", photo: "/profile/profile.jpg",
+    tags: ["@커뮤니케이션", "@책임감", "@열정적", "@문제해결", "@백엔드"],
     subtitle: "Backend Developer focused on reliable APIs, data modeling, and production infrastructure.",
     introduction: "서비스의 기능 구현에 그치지 않고 데이터 모델링, API 설계, 배포와 운영까지 직접 연결해보는 백엔드 개발자입니다. NestJS와 TypeScript를 중심으로 PostgreSQL, MongoDB, AWS 환경에서 서비스를 설계하고 배포해왔으며, 프로젝트를 실제 동작하는 서비스로 완성하는 과정에 관심이 많습니다.",
     keywords: ["NestJS", "TypeScript", "PostgreSQL", "MongoDB", "Prisma", "Docker", "AWS", "GitHub Actions"],
