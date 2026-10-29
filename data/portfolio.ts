@@ -1,7 +1,20 @@
 export type Link = { label: string; url: string };
+export type ProjectScreenshot = {
+  src: string;
+  alt: string;
+  title?: string;
+  description?: string;
+};
+
+export type ProjectVideo = {
+  src: string;
+  poster?: string;
+  title?: string;
+};
+
 export type Project = {
   slug: string; name: string; subtitle: string; description: string; role: string; period?: string;
-  tech: string[]; points: string[]; architecture: { svg: string; png: string; alt: string }; github?: string; liveUrl?: string; note?: string; status?: "LIVE" | "PoC" | "PROTOTYPE";
+  tech: string[]; points: string[]; architecture: { svg: string; png: string; alt: string }; screenshots?: ProjectScreenshot[]; video?: ProjectVideo; github?: string; liveUrl?: string; note?: string; status?: "LIVE" | "PoC" | "PROTOTYPE";
 };
 
 export const portfolio = {
@@ -31,8 +44,17 @@ export const portfolio = {
   },
   contact: { phone: "010-6257-4924", email: "qwerop159753@gmail.com", github: "https://github.com/yunseong-git", kakaoOpenChat: "https://open.kakao.com/o/g9dWc9Si", linkedin: "" },
   projects: [
-    { slug: "picky", name: "PICKY", subtitle: "Location-based Travel Social Platform", role: "Backend · Infrastructure", description: "장소 탐색과 여행 기록, SNS 기능을 결합한 장소 기반 여행 플랫폼입니다. 관광 데이터를 기반으로 장소를 탐색하고 Moment와 Sequence를 통해 개인 여행 경험을 기록하고 공유할 수 있도록 설계했습니다.", tech: ["NestJS", "TypeScript", "PostgreSQL", "Prisma", "Supabase", "Docker", "AWS EC2", "AWS ECR", "AWS SSM", "Nginx", "Cloudflare R2", "GitHub Actions", "Next.js"], points: ["장소 / Moment / Sequence 중심의 도메인 모델 설계", "PostgreSQL + Prisma 기반 API 및 데이터 구조 구현", "Docker + ECR + SSM 기반 EC2 CI/CD 및 TourAPI 연동"], liveUrl: "https://www.only-dev.com", status: "LIVE", architecture: { svg: "/architecture/picky.svg", png: "/architecture/picky.png", alt: "PICKY architecture diagram" } },
-    { slug: "senagm", name: "SenaGM", subtitle: "Guild Community & Strategy Archive", role: "Backend · Deployment", description: "세븐나이츠 길드 구성원이 길드 정보와 영웅 조합, 방어덱 및 공격 공략을 축적하고 공유할 수 있도록 만든 길드 커뮤니티 서비스입니다.", tech: ["NestJS", "TypeScript", "MongoDB Atlas", "Mongoose", "Upstash Redis", "JWT", "Google OAuth", "Docker", "AWS EC2", "GitHub Actions", "Docker Hub"], points: ["NestJS Modular Monolith 구조", "JWT + Redis 기반 Refresh Session 및 권한 버전 관리", "GitHub Actions → Docker Hub → EC2 자동 배포와 Discord 장애 알림 연동"], liveUrl: "https://senagm.com", status: "LIVE", architecture: { svg: "/architecture/senagm.svg", png: "/architecture/senagm.png", alt: "SenaGM architecture diagram" } },
+    { slug: "picky", name: "PICKY", subtitle: "Location-based Travel Social Platform", role: "Backend · Infrastructure", description: "장소 탐색과 여행 기록, SNS 기능을 결합한 장소 기반 여행 플랫폼입니다. 관광 데이터를 기반으로 장소를 탐색하고 Moment와 Sequence를 통해 개인 여행 경험을 기록하고 공유할 수 있도록 설계했습니다.", tech: ["NestJS", "TypeScript", "PostgreSQL", "Prisma", "Supabase", "Docker", "AWS EC2", "AWS ECR", "AWS SSM", "Nginx", "Cloudflare R2", "GitHub Actions", "Next.js"], points: ["장소 / Moment / Sequence 중심의 도메인 모델 설계", "PostgreSQL + Prisma 기반 API 및 데이터 구조 구현", "Docker + ECR + SSM 기반 EC2 CI/CD 및 TourAPI 연동"], liveUrl: "https://www.only-dev.com", status: "LIVE", screenshots: [
+      { src: "/screenshots/picky/01.png", alt: "PICKY place exploration screen" },
+      { src: "/screenshots/picky/02.png", alt: "PICKY place detail screen" },
+      { src: "/screenshots/picky/03.png", alt: "PICKY Moment travel record screen" },
+      { src: "/screenshots/picky/04.png", alt: "PICKY Sequence statistics screen" },
+    ], architecture: { svg: "/architecture/picky.svg", png: "/architecture/picky.png", alt: "PICKY architecture diagram" } },
+    { slug: "senagm", name: "SenaGM", subtitle: "Guild Community & Strategy Archive", role: "Backend · Deployment", description: "세븐나이츠 길드 구성원이 길드 정보와 영웅 조합, 방어덱 및 공격 공략을 축적하고 공유할 수 있도록 만든 길드 커뮤니티 서비스입니다.", tech: ["NestJS", "TypeScript", "MongoDB Atlas", "Mongoose", "Upstash Redis", "JWT", "Google OAuth", "Docker", "AWS EC2", "GitHub Actions", "Docker Hub"], points: ["NestJS Modular Monolith 구조", "JWT + Redis 기반 Refresh Session 및 권한 버전 관리", "GitHub Actions → Docker Hub → EC2 자동 배포와 Discord 장애 알림 연동"], liveUrl: "https://senagm.com", status: "LIVE", screenshots: [
+      { src: "/screenshots/senagm/01.png", alt: "SenaGM guild community screen" },
+      { src: "/screenshots/senagm/02.png", alt: "SenaGM strategy archive screen" },
+      { src: "/screenshots/senagm/03.png", alt: "SenaGM strategy detail screen" },
+    ], architecture: { svg: "/architecture/senagm.svg", png: "/architecture/senagm.png", alt: "SenaGM architecture diagram" } },
     { slug: "positionport", name: "PositionPort × AWS Data Lab", subtitle: "Data Lake & Analytics PoC", role: "Data Pipeline PoC · Collaboration", description: "암호화폐 자산 포트폴리오 서비스의 운영 데이터를 분석하기 위해 진행한 협업형 AWS DataOps PoC입니다. 기존 MongoDB 데이터를 AWS 데이터 분석 환경으로 연결하고 ETL부터 SQL 분석, BI 시각화까지의 흐름을 구성했습니다.", tech: ["MongoDB", "Amazon EC2", "Amazon S3", "AWS Glue", "Glue Data Catalog", "Amazon Athena", "Amazon QuickSight"], points: ["기존 MongoDB 운영 데이터 연결 및 S3 Data Lake 구성", "Glue Studio ETL, Crawler / Data Catalog, Athena SQL 분석", "QuickSight Dashboard 및 Forecast 활용"], status: "PoC", note: "PositionPort 서비스 운영자, 참여 개발자, AWS 기술 리소스와 함께 진행한 협업형 PoC입니다.", architecture: { svg: "/architecture/positionport.svg", png: "/architecture/positionport.png", alt: "PositionPort AWS Data Lab architecture diagram" } },
     { slug: "crypto-maker-bed", name: "Crypto Maker Bed", subtitle: "Serverless Blockchain Backend", role: "Backend · AWS Infrastructure", description: "사용자가 업로드한 이미지와 오디오를 가공하고 ERC-20 또는 ERC-1155 자산으로 발행하는 3인 프로토타입 프로젝트입니다. 백엔드에서는 장시간 처리 작업을 여러 Lambda로 분리하고 상태 기반 비동기 워크플로우를 구성했습니다.", tech: ["AWS Lambda", "Amazon API Gateway", "Amazon S3", "Amazon DynamoDB", "AWS SAM", "Polygon", "Ethers.js", "ERC-20", "ERC-1155"], points: ["Presigned URL 기반 S3 Direct Upload", "Lambda 기반 서버리스 워크플로우와 DynamoDB 요청 상태 관리", "비동기 ERC-20 / ERC-1155 발행 처리 및 Status Polling API"], status: "PROTOTYPE", note: "스마트 컨트랙트 인터페이스는 팀원이 제공했으며, 백엔드와 AWS 인프라 구현에 집중했습니다.", github: "https://github.com/yunseong-git/crypto-maker-bed", architecture: { svg: "/architecture/crypto-maker-bed.svg", png: "/architecture/crypto-maker-bed.png", alt: "Crypto Maker Bed architecture diagram" } },
   ] as Project[],
