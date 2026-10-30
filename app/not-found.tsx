@@ -1,2 +1,5 @@
 import Link from "next/link";
-export default function NotFound() { return <main className="container-page flex min-h-screen flex-col items-center justify-center text-center"><p className="text-sm font-semibold text-teal-700">404</p><h1 className="mt-3 text-3xl font-bold">페이지를 찾을 수 없습니다.</h1><Link className="focus-ring mt-6 rounded-md bg-slate-900 px-4 py-2 text-white" href="/">홈으로 돌아가기</Link></main>; }
+
+export default function NotFound() {
+  return <main className="not-found-page"><p>404</p><h1>페이지를 찾을 수 없습니다.</h1><Link className="focus-ring" href="/">홈으로 돌아가기</Link></main>;
+}
